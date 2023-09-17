@@ -2,9 +2,17 @@ var opcion
 var opcionNumerosPeI
 let contador=0
 let contadorFactorial=0
+let contadorContrasena=0
+let intentosContrasena=0
+const contrasena="secreto123"
+let contadorTablasMul=0
+let contadorGeneralPrimos=0
 
+
+
+/* ********************************************************************************************************************************************************************************* */
 do{
-    /* console.log("estudiante ingresado") */
+    
      opcion=Number(prompt("___________________|| Calculadora especial ||______________________\n 1- Contador de numeros pares e impares"+
     " \n 2- Calculadora Factorial \n 3- Validacion de contraseña \n 4- Generador de tablas de multiplicar \n 5- Suma de Numeros Primos"+
     "\n 6- Secuencia Fibonacci \n 7- Convertidor de Temperatura \n 8- Calculadora de Potencia \n 9 Salir del Sistema"))
@@ -54,7 +62,7 @@ do{
                             console.log("\nCantidad de numeros Impares negativos: "+contadoImpar+"\n ")
                          
                         }else{
-                            console.log("\nNumero invalido: "+numeroIngresado+"\n ")   
+                            console.log("\nNumero invalido\n ")   
                         }
                                                 
                         console.log("Numero de ejecuciones realizadas: "+contador)
@@ -70,7 +78,7 @@ do{
                 }while(opcionNumerosPeI!=2)
                 console.log("\nSaliendo al Menu Principal\n")
                 break;
-//*********************************************************************************************************************************************************************
+            /********************************************************************************************************************************************************************** */
             case 2:
                 console.log("2- Calculadora Factorial")
 
@@ -81,8 +89,10 @@ do{
                 switch(opcionNumerosPeI){
                     case 1:
                         let factorial=1
-                        contadorFactorial++                       
-                        let numeroIngresado=Number(prompt("Ingresa el numero a calcular"))
+                        contadorFactorial++  
+
+                        let numeroIngresado=parseInt(prompt("Ingresa el numero a calcular"))
+
                         console.log("\n Numero ingresado: "+numeroIngresado+"\n ")
                         if(numeroIngresado>0){
                             for(let i=1;i<=numeroIngresado;i++){
@@ -94,7 +104,7 @@ do{
                             console.log("El numero factorial de: "+numeroIngresado+" es 1\n ")
                         }else if(numeroIngresado<0){ 
                             console.log("Has elegido un numero negativo ("+numeroIngresado+
-                            ")  *****NO ES POSIBLE CALCULARLO*****, porque la función factorial se define sobre el conjunto de los números naturales.\n ") 
+                            ")  *****NO ES POSIBLE CALCULARLO*****, porque la función factorial se define sobre el conjunto de los números naturales (Enteros Positivos).\n ") 
                         }else{
 
                             console.log("Numero invalido: "+numeroIngresado+"\n ")
@@ -113,18 +123,147 @@ do{
                 }while(opcionNumerosPeI!=2)
                 console.log("\nSaliendo al Menu Principal\n")
                 break;
-//************************************************************************************************************************************************* 
+            /* *************************************************************************************************************************************************  */
             case 3:
-                console.log("3")
-                break;
+                console.log("Validacion de contraseña")
+                do{
+                opcionNumerosPeI=Number(prompt("1- Validar Contraseña\n2- Salir"))
+                    switch(opcionNumerosPeI){
+                        case 1:
+                            contadorContrasena++
+                            
+                            opcionNumerosPeI=prompt("Ingresa la Contraseña")
+                            
+                            if(opcionNumerosPeI===contrasena){
+                                console.log("\nAcceso concedido")
+                               intentosContrasena=0
+                            }else{
+                                console.log("\nAcceso denegado")
+                                intentosContrasena++
+                                console.log("\n Numeros de Intentos: "+intentosContrasena+" Te vamos a bloquear")
+                            }
 
+                                console.log("\nNumero de operaciones realizadas: "+contadorContrasena)
+
+                            break;
+
+                        case 2:
+                                console.log("\nHas elegido salir de Validacion de contraseña\n")
+                            break;
+
+                            default:
+                                console.log("OPCION INVALIDA")
+                            break;  
+
+                    }
+
+                 }while(opcionNumerosPeI!=2)
+                    console.log("\nSaliendo al Menu Principal\n")
+                break;
+            //*******************************************************************************************************************************************************************************
             case 4:
-                console.log("4")
+                console.log("Generador de tablas de Multiplicar")               
+
+                do{
+                    opcionNumerosPeI=Number(prompt("1- Generar tablas de multiplicar\n2- Salir"))
+
+                 switch(opcionNumerosPeI){
+                case 1: 
+                contadorTablasMul++
+                opcionNumerosPeI=Number(prompt("\nIngrese Un numero"))
+                if(opcionNumerosPeI>0  ){
+
+                    for(let i=1;i<=10;i++){
+                    var multiplicacion=opcionNumerosPeI*i
+                    console.log("\n   "+i+" x "+opcionNumerosPeI+" = "+multiplicacion)
+                    }
+                }else if(opcionNumerosPeI<0){
+                    for(let i=1;i<=10;i++){
+                        var multiplicacion=opcionNumerosPeI*i
+                        console.log("\n   "+i+" x "+opcionNumerosPeI+" = "+multiplicacion)
+                        }
+                }else{
+                    console.log("OPCION INVALIDA")
+                }
+
+                    console.log("\nNumero de operaciones realizadas: "+contadorTablasMul)
+                    break; 
+                                      
+                case 2:
+                    console.log("\nHas elegido salir del Generador de tablas de Multiplicar \n")
+                    break;
+                    default:
+                        console.log("OPCION INVALIDA")
+                        break;    
+                                                             
+            }
+            }while(opcionNumerosPeI!=2)
+            console.log("\nSaliendo al Menu Principal\n")
+
+                break;
+            //*************************************************************************************************************************************************************************************************** */
+            case 5:
+                console.log("\nSuma de numeros primos")
+                do{
+                    opcionNumerosPeI=Number(prompt("1-Sumar numeros primos \n2- Salir"))
+
+                     switch(opcionNumerosPeI){
+                        case 1: 
+                            contadorGeneralPrimos++
+
+                            let cantNumPrimos = parseInt(prompt("Ingrese la cantidad de los primeros números primos que desea sumar:"));
+
+                            if(cantNumPrimos>1){
+
+                            let suma = 0;
+                            let contadorNumPrimos = 0;
+                            let numeroEvaluado = 2;
+                
+                            while (contadorNumPrimos <cantNumPrimos) {
+                                let esPrimo = true;
+                
+                                for (let i = 2; i <= Math.sqrt(numeroEvaluado); i++) {
+                                    if (numeroEvaluado % i === 0) {
+                                      esPrimo = false;                                    
+                                    }
+                                }
+                
+                                    if (esPrimo) {
+                                        suma += numeroEvaluado;
+                                        contadorNumPrimos++;
+                                    }
+                
+                                      numeroEvaluado++;
+                            }
+                
+                                        console.log("La suma de los primeros "+ cantNumPrimos+" números primos es: "+suma);
+
+                            }else if(cantNumPrimos<0){ 
+                                console.log("\nHas elegido un numero negativo ("+cantNumPrimos+
+                                ")  *****NO ES POSIBLE CALCULARLO*****, porque los numeros primos se define sobre el conjunto de los números naturales (Enteros Positivos) mayores de uno.\n ")
+
+                            }else{
+
+                                console.log("\nNumero invalido\n ")
+
+                            }
+                                console.log("\nNumero de operaciones realizadas: "+contadorGeneralPrimos)
+
+                        break;
+                        case 2:
+                            console.log("\nHas elegido salir del Generador de tablas de Multiplicar \n")
+                        break;
+                            default:
+                                console.log("OPCION INVALIDA")
+                            break;    
+                    }                                         
+                
+                }while(opcionNumerosPeI!=2)
+                console.log("\nSaliendo al Menu Principal\n")
+                
                 break;
 
-            case 5:
-                console.log("5")
-                break;
+            //****************************************************************************************************************************************************************************** */    
             case 6:
                 console.log("6")
                 break;
@@ -146,5 +285,8 @@ do{
 }while(opcion!=9);
     console.log("\nHas ejecutado la calculadora de numeros Pares e Impares: "+contador+" veces\n")
     console.log("\nHas ejecutado la calculadora de factorial: "+contadorFactorial+" veces\n")
-    console.log("HASTA PRONTO")
+    console.log("\nHas ejecutado la validacino de contraseña: "+contadorContrasena+" veces\n")
+    console.log("\nHas ejecutado el generador de tablas de multiplicar: "+contadorTablasMul+" veces\n")
+    console.log("\nHas ejecutado la suma de numeros primos: "+contadorGeneralPrimos+" veces\n")
+    console.log("\nHASTA PRONTO")
 
