@@ -7,6 +7,8 @@ let intentosContrasena=0
 const contrasena="secreto123"
 let contadorTablasMul=0
 let contadorGeneralPrimos=0
+const ceroAbsoluto=32
+const unCelsiusEs=1.8
 
 
 
@@ -267,12 +269,82 @@ do{
             case 6:
                 console.log("6")
                 break;
+            //******************************************************************************************************************************************************************************* */
             case 7:
-                console.log("7")
+                console.log("Conversor de temperatura (celsius a Fahrenheit o de Fahrenheit a celsius) ")
+                do{
+                    opcionNumerosPeI=Number(prompt("1-convertir (°C) a (°F)\n2-convertir (°F) a (°C) \n3- Salir"))
+
+                     switch(opcionNumerosPeI){
+                        case 1: 
+                      
+                        let gradosF
+                        opcionNumerosPeI=Number(prompt("Ingrese los grados celsius a comvertir"))
+                        
+                
+                            gradosF=(opcionNumerosPeI*unCelsiusEs)+ceroAbsoluto
+                            console.log("\n( "+opcionNumerosPeI+" °C ) Equivale a ( "+gradosF+" °F )")
+                            break;
+
+                        case 2:
+                           
+                            let gradosC
+                        opcionNumerosPeI=Number(prompt("Ingrese los grados Fahrenheit a comvertir"))
+                        
+                        gradosC=(opcionNumerosPeI-ceroAbsoluto)/unCelsiusEs
+                            console.log("\n( "+opcionNumerosPeI+" °F ) Equivale a ( "+gradosC+" °C )")
+                                         
+                            break;
+              
+                            case 3:
+                                console.log("\nHas elegido salir del conversor de temperatura \n")
+                            break;
+                                default:
+                                    console.log("OPCION INVALIDA")
+                                break;    
+                        }                                         
+                    
+                    }while(opcionNumerosPeI!=3)
+                    console.log("\nSaliendo al Menu Principal\n")
                 break;
+
+
+            //********************************************************************************************************************************************************************** */    
             case 8:
-                console.log("8")
+                console.log("Potenciacion")
+
+                do{
+                    
+                    opcionNumerosPeI=Number(prompt("1- Deseas calcular la potencia de un numero\n2- Salir"))
+                    
+                    switch(opcionNumerosPeI){
+                        case 1:
+                            let base=Number(prompt("Ingresa la Base del numero"))
+                            let exponente=Number(prompt("Ingresa el Exponente del numero"))
+                            let potencia
+                              if(base==0&&exponente==0){                               
+                                console.log("\nLa poencia del numero: "+base+" elevado a la "+exponente+" es INDETERMINADO")
+                                                            
+                              }else{
+                                potencia= (base)**(exponente)
+                                console.log("\nLa poencia del numero: "+base+" elevado a la "+exponente+" es = "+potencia)
+                                }
+                            break;
+              
+                            case 2:
+                                console.log("\nHas elegido salir de Potenciacion  \n")
+                            break;
+                                default:
+                                    console.log("OPCION INVALIDA")
+                                break;    
+                        }                                         
+                    
+                    }while(opcionNumerosPeI!=2)
+                    console.log("\nSaliendo al Menu Principal\n")
+
                 break;
+
+                //********************************************************************************************************************************************************************************* */
             case 9:
                 console.log("\nHas elegido salir del sistema\n")
                 break;
