@@ -215,28 +215,28 @@ do{
 
                             if(cantNumPrimos>1){
 
-                            let suma = 0;
+                            let resultado = 0;
                             let contadorNumPrimos = 0;
                             let numeroEvaluado = 2;
                 
                             while (contadorNumPrimos <cantNumPrimos) {
-                                let esPrimo = true;
+                                let esteEsPrimo = true;
                 
                                 for (let i = 2; i <= Math.sqrt(numeroEvaluado); i++) {
                                     if (numeroEvaluado % i === 0) {
-                                      esPrimo = false;                                    
+                                        esteEsPrimo = false;                                    
                                     }
                                 }
                 
-                                    if (esPrimo) {
-                                        suma += numeroEvaluado;
+                                    if (esteEsPrimo) {
+                                        resultado += numeroEvaluado;
                                         contadorNumPrimos++;
                                     }
                 
                                       numeroEvaluado++;
                             }
                 
-                                        console.log("La suma de los primeros "+ cantNumPrimos+" números primos es: "+suma);
+                                        console.log("La suma de los primeros "+ cantNumPrimos+" números primos es: "+resultado);
 
                             }else if(cantNumPrimos<0){ 
                                 console.log("\nHas elegido un numero negativo ("+cantNumPrimos+
