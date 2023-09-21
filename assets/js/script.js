@@ -1,4 +1,4 @@
-var opcion
+
 var opcionNumerosPeI
 let contador=0
 let contadorFactorial=0
@@ -7,19 +7,22 @@ let intentosContrasena=0
 const contrasena="secreto123"
 let contadorTablasMul=0
 let contadorGeneralPrimos=0
+let contadorFibonacci=0
+let contadorTemperatura=0
 const ceroAbsoluto=32
 const unCelsiusEs=1.8
+let contadorPotencia=0
 
 
 
 /* ********************************************************************************************************************************************************************************* */
 do{
     
-     opcion=Number(prompt("___________________|| Calculadora especial ||______________________\n 1- Contador de numeros pares e impares"+
+     opcionNumerosPeI=Number(prompt("___________________|| Calculadora especial ||______________________\n 1- Contador de numeros pares e impares"+
     " \n 2- Calculadora Factorial \n 3- Validacion de contraseña \n 4- Generador de tablas de multiplicar \n 5- Suma de Numeros Primos"+
     "\n 6- Secuencia Fibonacci \n 7- Convertidor de Temperatura \n 8- Calculadora de Potencia \n 9 Salir del Sistema"))
    
-        switch(opcion){
+        switch(opcionNumerosPeI){
             case 1:
                 console.log("1- Contador de numeros pares e impares")
 
@@ -173,7 +176,7 @@ do{
                 case 1: 
                 contadorTablasMul++
                 opcionNumerosPeI=Number(prompt("\nIngrese Un numero"))
-                if(opcionNumerosPeI>0  ){
+                if(opcionNumerosPeI>=0  ){
 
                     for(let i=1;i<=10;i++){
                     var multiplicacion=opcionNumerosPeI*i
@@ -253,7 +256,7 @@ do{
 
                         break;
                         case 2:
-                            console.log("\nHas elegido salir del Generador de tablas de Multiplicar \n")
+                            console.log("\nHas elegido salir de la suma de numeros primos \n")
                         break;
                             default:
                                 console.log("OPCION INVALIDA")
@@ -267,7 +270,51 @@ do{
 
             //****************************************************************************************************************************************************************************** */    
             case 6:
-                console.log("6")
+                    console.log("Secuencia Fibonacci")
+
+                do{
+                        opcionNumerosPeI=Number(prompt("1-Generar secuencia Fibonacci \n2- Salir"))
+    
+                     switch(opcionNumerosPeI){
+                    case 1: 
+                     contadorFibonacci++
+                            
+                    var numeroUno = 0;
+                    var numeroDos = 1;
+                        posicionFibonacci=Number(prompt("Ingresa el numero de la posicion que deseas generar"))
+                        if (posicionFibonacci<1){
+                            console.log("\nHas ingresado el "+posicionFibonacci+" ERROR Favor ingrese un numero positivo mayor que 1 (la frecuencia Fibonacci es incremental)")
+                        }else{
+
+                    console.log(numeroUno);
+                    console.log(numeroDos);
+
+                    for (var i = 1; i <= posicionFibonacci; i++) {
+  
+                    var siguienteNumero = numeroUno + numeroDos;
+
+  
+                    console.log(siguienteNumero);
+
+  
+                    numeroUno = numeroDos;
+                    numeroDos = siguienteNumero;
+                    }
+                    }
+                    console.log("\nNumero de operaciones realizadas: "+contadorFibonacci)
+
+                    break;
+                    case 2:
+                        console.log("\nHas elegido salir del Generador Fibonacci \n")
+                    break;
+                        default:
+                            console.log("OPCION INVALIDA")
+                        break;    
+                }                                         
+            
+                    }while(opcionNumerosPeI!=2)
+                    console.log("\nSaliendo al Menu Principal\n")
+            
                 break;
             //******************************************************************************************************************************************************************************* */
             case 7:
@@ -277,7 +324,7 @@ do{
 
                      switch(opcionNumerosPeI){
                         case 1: 
-                      
+                            contadorTemperatura++
                         let gradosF
                         opcionNumerosPeI=Number(prompt("Ingrese los grados celsius a comvertir"))
                         
@@ -319,6 +366,7 @@ do{
                     
                     switch(opcionNumerosPeI){
                         case 1:
+                            contadorPotencia++
                             let base=Number(prompt("Ingresa la Base del numero"))
                             let exponente=Number(prompt("Ingresa el Exponente del numero"))
                             let potencia
@@ -354,11 +402,39 @@ do{
           
         }
             
-}while(opcion!=9);
+}while(opcionNumerosPeI!=9);
     console.log("\nHas ejecutado la calculadora de numeros Pares e Impares: "+contador+" veces\n")
     console.log("\nHas ejecutado la calculadora de factorial: "+contadorFactorial+" veces\n")
-    console.log("\nHas ejecutado la validacino de contraseña: "+contadorContrasena+" veces\n")
+    console.log("\nHas ejecutado la validacion de contraseña: "+contadorContrasena+" veces\n")
     console.log("\nHas ejecutado el generador de tablas de multiplicar: "+contadorTablasMul+" veces\n")
     console.log("\nHas ejecutado la suma de numeros primos: "+contadorGeneralPrimos+" veces\n")
+    console.log("\nHas ejecutado la Secuencia Fibonacci: "+contadorFibonacci+" veces\n")
+    console.log("\nHas ejecutado el Conversor de temperatura: "+contadorTemperatura+" veces\n")
+    console.log("\nHas ejecutado la calculadora de potecias: "+contadorPotencia+" veces\n")
+
+
+    var contadores=[2,3,5,6,2,3,6,3]
+//var contadores=[ contador, contadorFactorial, contadorContrasena, contadorTablasMul, contadorGeneralPrimos,contadorFibonacci, contadorTemperatura,contadorPotencia];
+var nombres=["calculadora de numeros Pares e Impares","calculadora de factorial","validacion de contraseña","generador de tablas de multiplicar",
+"suma de numeros primos","Secuencia Fibonacci","Conversor de temperatura","calculadora de potecias"]
+
+var valorMaximo = contadores[0]; 
+var cantidadMaxima = 1; 
+
+for (var i = 0; i < contadores.length; i++) {
+    for(var j =1;j<contadores.length;j++){
+  if (contadores[i] > contadores[j]) {
+         valorMaximo = contadores[i];
+   // cantidadMaxima=1;
+  } else if (contadores[i] === valorMaximo) {
+    cantidadMaxima++;
+    //console.log("\nel calculo que mas se ejecuto es: "+nombres[i]+"---"+valorMaximo+" veces"+cantidadMaxima);   
+    
+    
+  }
+}
+}
+console.log("\nel calculo que mas se ejecuto es: "+nombres[i]+"---"+valorMaximo+" veces"+cantidadMaxima);
+
     console.log("\nHASTA PRONTO")
 
